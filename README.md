@@ -29,28 +29,23 @@ t.test(my_data$weight, mu = 25,alternative = "less")
 t.test(my_data$weight, mu = 25,alternative = "greater")
 # two sample
 ##if you want to test whether the average men’s weight is less than the average women’s weight, type this:
-  t.test(weight ~ group, data = my_data,
+t.test(weight ~ group, data = my_data,
          var.equal = TRUE, alternative = "less")
 ##if you want to test whether the average men’s weight is greater than the average women’s weight, type this
 t.test(weight ~ group, data = my_data,
        var.equal = TRUE, alternative = "greater")
-       
-       
+
 # Graph: Plot weight by group and color by group
 library("ggpubr")
 ggboxplot(my_data, x = "group", y = "weight", 
           color = "group", palette = c("#00AFBB", "#E7B800"),
           ylab = "Weight", xlab = "Groups")
 
-
-
 ## Preleminary test to check independent t-test assumptions
 http://www.sthda.com/english/wiki/unpaired-two-samples-t-test-in-r
 #Assumption 1: Are the two samples independents?      Yes, since the samples from men and women are not related.
 #Assumtion 2: Are the data from each of the 2 groups follow a normal distribution?
 #Assumption 3. Do the two populations have the same variances?
-
-
 
 ## 得到T值和自由度，求概率Pr
 #问题：Pr(t4>2.1318)
